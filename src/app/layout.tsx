@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./style.css";
 import AnimatedCursor from "react-animated-cursor";
+import StyledComponentsRegistry from "./registry";
 
 export const metadata = {
   title: "Museum Du Louvre | Da Vinci Exhibition",
@@ -15,18 +16,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <AnimatedCursor
-        innerSize={15}
-        outerSize={8}
-        color='209, 176, 94'
-        outerAlpha={0.2}
-        innerScale={0.7}
-        outerScale={5}
-        innerStyle={{
-          mixBlendMode: "exclusion",
-        }}
-      />
-      <body>{children}</body>
+      <StyledComponentsRegistry>
+        <AnimatedCursor
+          innerSize={15}
+          outerSize={8}
+          color='209, 176, 94'
+          outerAlpha={0.2}
+          innerScale={0.7}
+          outerScale={5}
+          innerStyle={{
+            mixBlendMode: "exclusion",
+          }}
+        />
+        <body>{children}</body>
+      </StyledComponentsRegistry>
     </html>
   );
 }
