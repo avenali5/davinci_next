@@ -26,6 +26,7 @@ export default function RootLayout({
           outerScale={5}
           innerStyle={{
             mixBlendMode: "exclusion",
+            zIndex: 10000,
           }}
         />
         <body>{children}</body>

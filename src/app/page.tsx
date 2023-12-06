@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import { Header, Layout } from "@/components";
 import Menu from "@/components/Menu/Menu";
 import SectionTracker from "@/components/SectionTracker/SectionTracker";
@@ -13,8 +14,23 @@ import SeeMore from "@/sections/SeeMore/SeeMore";
 import Tickets from "@/sections/Tickets/Tickets";
 import WhatToSee from "@/sections/WhatToSee/WhatToSee";
 import WhoIs from "@/sections/WhoIs/WhoIs";
+import Lenis from "@studio-freight/lenis";
 
 export default function Home() {
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
   return (
     <Layout>
       <SectionTracker />

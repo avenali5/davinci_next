@@ -7,7 +7,7 @@ export const MenuStyle = styled.menu`
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 10000;
+  z-index: 1000;
   background: ${globals.black};
   opacity: 0;
   pointer-events: none;

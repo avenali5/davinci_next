@@ -29,11 +29,11 @@ const Hero = () => {
         </p>
         <div className='button-wrapper'>
           <div className='links'>
-            <span>Programm</span>
-            <span>Learn more</span>
-            <span>Contacts</span>
+            <button>Programm</button>
+            <button>Learn more</button>
+            <button>Contacts</button>
           </div>
-          <Button text='BUY YOUR TICKET' />
+          <Button className='primary-button' text='BUY YOUR TICKET' />
         </div>
       </div>
     </HeroStyle>

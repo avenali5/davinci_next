@@ -70,7 +70,7 @@ export const HeroStyle = styled.section`
     .image-wrapper {
       background: url("assets/images/hero_large.png") no-repeat;
       background-position: 100% 20%;
-      background-size: 100%;
+      background-size: cover;
       .small {
         object-position: center -4rem;
         display: none;
@@ -89,9 +89,13 @@ export const HeroStyle = styled.section`
           align-items: center;
           justify-content: space-around;
           gap: 3rem;
-          span {
+          button {
             font-size: 1.3rem;
-            cursor: pointer;
+            background: none;
+            border: none;
+            outline: none;
+            color: ${globals.white};
+            width: fit-content;
             position: relative;
             &:before {
               content: "";
@@ -114,7 +118,7 @@ export const HeroStyle = styled.section`
             }
           }
         }
-        button {
+        .primary-button {
           display: none;
         }
       }
@@ -124,6 +128,7 @@ export const HeroStyle = styled.section`
     .image-wrapper {
       .small {
         object-position: center -20rem;
+        background-size: 100%;
       }
     }
     .text {
@@ -133,40 +138,6 @@ export const HeroStyle = styled.section`
       .button-wrapper {
         margin-top: 2rem;
         width: 100%;
-
-        .links {
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-          gap: 3rem;
-          span {
-            font-size: 1.3rem;
-            cursor: pointer;
-            position: relative;
-            &:before {
-              content: "";
-              position: absolute;
-              top: 50%;
-              left: 0%;
-              transform: translate(-50%, -50%);
-              border: 1px solid ${globals.white};
-              width: 2rem;
-              height: 2rem;
-              border-radius: 200px;
-              transition: 0.4s all;
-            }
-            &:hover {
-              &:before {
-                height: 2.3rem;
-                width: 2.3rem;
-                transform-origin: center center;
-              }
-            }
-          }
-        }
-        button {
-          display: none;
-        }
       }
     }
   }
