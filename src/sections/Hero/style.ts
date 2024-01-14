@@ -40,10 +40,17 @@ export const HeroStyle = styled.section`
     position: relative;
     max-width: 28rem;
 
+    .dates {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+
     h2 {
       margin: 1rem auto 2rem;
       position: relative;
       width: fit-content;
+      opacity: 0;
+      transform: translateY(2rem);
       &:before {
         content: "";
         position: absolute;
@@ -53,6 +60,10 @@ export const HeroStyle = styled.section`
         bottom: 0;
       }
     }
+    p {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
     .button-wrapper {
       margin-top: 2rem;
       width: 100%;
@@ -61,6 +72,9 @@ export const HeroStyle = styled.section`
       }
       button {
         width: 100%;
+        opacity: 0;
+        transform: translateY(2rem);
+        display: block;
       }
     }
   }

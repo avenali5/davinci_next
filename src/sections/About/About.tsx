@@ -33,8 +33,62 @@ const About = () => {
       timeline.kill();
     };
   }, []);
+
+  useLayoutEffect(() => {
+    let mm = gsap.matchMedia();
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".image-container.first",
+        start: "top center",
+        end: "bottom bottom",
+      },
+    });
+    mm.add("(min-width: 768px)", () => {
+      tl.to(".image-container.first", {
+        width: 425,
+        duration: 2,
+        ease: "expo.out",
+      }).to(
+        ".image-container.first img",
+        {
+          duration: 2,
+          scale: 1,
+          ease: "expo.out",
+        },
+        "0.1"
+      );
+
+      tl.to(".image-container.second", {
+        width: 375,
+        duration: 3,
+        ease: "expo.out",
+      }).to(
+        ".image-container.second img",
+        {
+          duration: 2,
+          scale: 1,
+          ease: "expo.out",
+        },
+        "< 0.1"
+      );
+    });
+
+    // const tl2 = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: ".image-container.second",
+    //     start: "top center",
+    //     end: "bottom bottom",
+    //     markers: true,
+    //   },
+    // });
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
   return (
-    <AboutStyle>
+    <AboutStyle className='about-container'>
       <div className='wrapper max-width'>
         <h2 className='serif'>About</h2>
         <p className='first-p'>

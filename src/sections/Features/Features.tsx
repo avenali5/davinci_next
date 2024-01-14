@@ -7,13 +7,49 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { useMedia } from "@/hooks/useMedia";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
 
 const Features = () => {
   const isTablet = useMedia("(min-width: 768px)");
 
   useLayoutEffect(() => {
+    const sections = document.querySelectorAll(
+      // ".features-wrapper .image.one .wrap"
+      ".features-wrapper .image .wrap"
+    );
+
+    const timeline = gsap.timeline({});
+
+    // sections.forEach(el => {
+    //   timeline.fromTo(
+    //     el,
+    //     {
+    //       width: 0,
+    //     },
+    //     {
+    //       scrollTrigger: {
+    //         trigger: `.features-wrapper .features ${el.tagName.toLowerCase()}`,
+    //         start: "top center",
+    //       },
+    //       width: "100%",
+    //       stagger: 0.4,
+    //       duration: 1.8,
+    //       ease: "expo.out",
+    //     }
+    //   );
+    // .fromTo(
+    //   `.features-wrapper .features ${el.tagName.toLowerCase()} img`,
+    //   {
+    //     scale: 2,
+    //   },
+    //   {
+    //     scale: 1,
+    //     duration: 1.8,
+    //     ease: "expo.out",
+    //   }
+    // ),
+    // 0;
+    // });
+
     const elements = document.querySelectorAll(".work-method span");
     const timeline2 = gsap.timeline({
       scrollTrigger: {
@@ -37,6 +73,7 @@ const Features = () => {
     });
 
     return () => {
+      timeline.kill();
       timeline2.kill();
     };
   }, []);
@@ -51,7 +88,7 @@ const Features = () => {
           height={400}
           className='leonardo'
         />
-        <div>
+        <div className='features'>
           <Swiper
             slidesPerView={isTablet ? 3 : 1}
             modules={[Pagination]}
@@ -68,12 +105,16 @@ const Features = () => {
                     Leonardo’s drafts and how he perfected his compositions.
                   </p>
                 </div>
-                <Image
-                  src='/assets/images/notebooks.jpg'
-                  alt=''
-                  width={400}
-                  height={400}
-                />
+                <div className='image one'>
+                  <div className='wrap'>
+                    <Image
+                      src='/assets/images/notebooks.jpg'
+                      alt=''
+                      width={400}
+                      height={400}
+                    />
+                  </div>
+                </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
@@ -89,12 +130,16 @@ const Features = () => {
                     through which he sought to give life to his paintings.
                   </p>
                 </div>
-                <Image
-                  src='/assets/images/science.jpg'
-                  alt=''
-                  width={400}
-                  height={400}
-                />
+                <div className='image two'>
+                  <div className='wrap'>
+                    <Image
+                      src='/assets/images/science.jpg'
+                      alt=''
+                      width={400}
+                      height={400}
+                    />
+                  </div>
+                </div>
               </div>
             </SwiperSlide>
             <SwiperSlide>
@@ -109,12 +154,16 @@ const Features = () => {
                     to his artistic universe and relationship to painting.
                   </p>
                 </div>
-                <Image
-                  src='/assets/images/documents.jpg'
-                  alt=''
-                  width={400}
-                  height={400}
-                />
+                <div className='image three'>
+                  <div className='wrap'>
+                    <Image
+                      src='/assets/images/documents.jpg'
+                      alt=''
+                      width={400}
+                      height={400}
+                    />
+                  </div>
+                </div>
               </div>
             </SwiperSlide>
           </Swiper>

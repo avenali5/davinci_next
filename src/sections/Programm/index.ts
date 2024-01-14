@@ -103,7 +103,6 @@ export const ProgrammStyle = styled.section`
             .number {
               padding-left: 0;
               position: relative;
-              border: 1px solid red;
               .prev-line {
                 border-bottom: 5px dotted ${globals.gold};
                 width: 3.5rem;

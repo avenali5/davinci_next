@@ -1,12 +1,39 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { WhoIsStyle } from "./style";
 import Image from "next/image";
+import gsap from "gsap";
 
 const WhoIs = () => {
   const [selected, setSelected] = useState(1);
   const [loader, setLoader] = useState(true);
+
+  useLayoutEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".who-is-container",
+        start: "top center",
+        // markers: true,
+      },
+    });
+
+    tl.to(".who-is-container h2 .wrap span", {
+      stagger: 0.5,
+      duration: 0.6,
+      transform: "translateY(0)",
+    });
+
+    tl.to(".who-is-container h2 .wrap span .rectangle", {
+      duration: 0.4,
+      width: "80%",
+    });
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
   return (
-    <WhoIsStyle>
+    <WhoIsStyle className='who-is-container'>
       <div className='wrapper max-width'>
         <div className='top'>
           <Image
@@ -16,7 +43,14 @@ const WhoIs = () => {
             height={400}
           />
           <h2>
-            Who is <br /> <span className='serif'>Leonardo?</span>
+            <div className='wrap'>
+              <span className='serif'>Who is</span>
+            </div>
+            <div className='wrap'>
+              <span className='serif'>
+                Leonardo? <div className='rectangle' />
+              </span>
+            </div>
           </h2>
         </div>
 

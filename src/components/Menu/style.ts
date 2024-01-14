@@ -28,7 +28,7 @@ export const MenuStyle = styled.menu`
 
     .close {
       position: relative;
-      cursor: pointer;
+      color: ${globals.white};
 
       &:before {
         content: "";
@@ -55,7 +55,6 @@ export const MenuStyle = styled.menu`
     li {
       font-size: 3rem;
       transition: 0.4s all;
-      cursor: pointer;
       &:hover {
         color: ${globals.gold};
       }

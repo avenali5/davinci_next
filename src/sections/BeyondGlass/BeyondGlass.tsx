@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { BeyondGlassStyle } from "./style";
 import Model from "./Model";
 
 const BeyondGlass = () => {
+  const [instructions, setInstructions] = useState(true);
+
   return (
     <BeyondGlassStyle>
       <div className='max-width'>
         <Model />
+        {instructions && (
+          <div className='instructions' onClick={() => setInstructions(false)}>
+            <h3 className='serf'>Click and drag around</h3>
+          </div>
+        )}
+
         <div className='text'>
           <h2>
             Mona Lisa: <br /> Beyond the Glass{" "}

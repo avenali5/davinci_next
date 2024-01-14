@@ -19,14 +19,20 @@ export const WhoIsStyle = styled.section`
       position: absolute;
       bottom: 0;
       font-size: 3rem;
-
+      .wrap {
+        overflow: hidden;
+        span {
+          display: block;
+          transform: translateY(100%);
+        }
+      }
       span {
         position: relative;
         z-index: 1;
-        &:before {
-          content: "";
+        .rectangle {
+          /* content: ""; */
           position: absolute;
-          width: 80%;
+          width: 0%;
           background: ${globals.gold};
           height: 60%;
           border-radius: 200px;
@@ -56,7 +62,6 @@ export const WhoIsStyle = styled.section`
         display: flex;
         align-items: center;
         gap: 25px;
-        cursor: pointer;
         .radio-input {
           border: 1px solid ${globals.white};
           height: 30px;
@@ -116,6 +121,7 @@ export const WhoIsStyle = styled.section`
   }
 
   @media (min-width: 768px) {
+    padding-block: 10rem;
     .top {
       margin-bottom: 10rem;
       h2 {
@@ -128,7 +134,7 @@ export const WhoIsStyle = styled.section`
         gap: 2rem;
       }
       .image {
-        max-width: 25rem;
+        width: 25rem;
         margin: 0 auto;
       }
     }

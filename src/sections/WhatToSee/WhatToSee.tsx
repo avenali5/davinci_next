@@ -3,12 +3,9 @@ import { WhatToSeeStyle } from "./style";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useMedia } from "@/hooks/useMedia";
 gsap.registerPlugin(ScrollTrigger);
 
 const WhatToSee = () => {
-  const isTablet = useMedia("(min-width: 768px)");
-
   const slides = [
     {
       img: "/assets/images/slider/1.jpg",
@@ -53,29 +50,38 @@ const WhatToSee = () => {
   ];
 
   useLayoutEffect(() => {
-    if (typeof window !== "undefined" && window.innerWidth >= 768) {
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".what-will-you-see-wrapper",
-          scrub: 1,
-          pin: true,
-          start: "top top",
-          end: "+=2600 top",
-        },
-      });
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".what-will-you-see-wrapper",
+        scrub: 1,
+        pin: true,
+        start: "top top",
+        end: "+=2600 top",
+      },
+    });
+    const sliderWidth = document.querySelector<any>(
+      ".what-will-you-see-slider"
+    ).offsetWidth;
+
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
       timeline.fromTo(
         ".what-will-you-see-slider",
         {
-          transform: "translateX(35%)",
+          transform: `translateX(${sliderWidth / 2.4}px)`,
+          // transform: "translateX(35%)",
         },
         {
-          transform: "translateX(-18%)",
+          transform: `translateX(-${sliderWidth / 4.6}px)`,
+          // transform: "translateX(-18%)",
         }
       );
-      return () => {
-        timeline.kill();
-      };
-    }
+    });
+
+    return () => {
+      timeline.kill();
+    };
   }, []);
 
   return (

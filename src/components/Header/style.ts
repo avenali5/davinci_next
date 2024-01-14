@@ -9,6 +9,8 @@ export const HeaderStyle = styled.header`
   left: 0;
   z-index: 1000;
   mix-blend-mode: exclusion;
+  transform: translateY(-50%);
+  opacity: 0;
   .wrapper {
     display: flex;
     align-items: center;

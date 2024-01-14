@@ -11,9 +11,9 @@ const Menu = () => {
       <div className='container max-width'>
         <header>
           <h4 className='serif'>Lovure</h4>
-          <div className='close serif' onClick={handleMenu}>
+          <button className='close serif' onClick={handleMenu}>
             Close X
-          </div>
+          </button>
         </header>
 
         <ul>

@@ -21,6 +21,8 @@ export const NumbersStyle = styled.section`
     > div {
       margin-right: ${globals.sectionPadding};
       min-width: 10rem;
+      opacity: 0;
+      transform: translateY(1rem);
       b {
         font-size: 5rem;
         position: relative;

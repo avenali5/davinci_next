@@ -12,3 +12,8 @@
 h2 {
   font-family: "Cormorant Infant";
 }
+
+button {
+  background: none;
+  border: none;
+}

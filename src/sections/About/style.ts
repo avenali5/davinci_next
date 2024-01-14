@@ -80,6 +80,28 @@ export const AboutStyle = styled.section`
       justify-content: space-between;
       .images {
         .image-container {
+          width: 0;
+          height: 0;
+          overflow: hidden;
+          &.first img {
+            min-width: 425px;
+            min-height: 444px;
+            position: absolute;
+            transform-origin: left top;
+            transform: scale(2);
+          }
+          &.second {
+            height: 600px;
+            img {
+              min-width: 375px;
+              min-height: 600px;
+              position: absolute;
+              transform-origin: bottom right;
+              transform: scale(2);
+            }
+          }
+        }
+        .image-container {
           position: absolute;
           z-index: 0;
           max-width: 425px;
