@@ -50,15 +50,7 @@ const WhatToSee = () => {
   ];
 
   useLayoutEffect(() => {
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".what-will-you-see-wrapper",
-        scrub: 1,
-        pin: true,
-        start: "top top",
-        end: "+=2600 top",
-      },
-    });
+    let timeline: any;
     const sliderWidth = document.querySelector<any>(
       ".what-will-you-see-slider"
     ).offsetWidth;
@@ -66,6 +58,15 @@ const WhatToSee = () => {
     let mm = gsap.matchMedia();
 
     mm.add("(min-width: 768px)", () => {
+      timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".what-will-you-see-wrapper",
+          scrub: 1,
+          pin: true,
+          start: "top top",
+          end: "+=2600 top",
+        },
+      });
       timeline.fromTo(
         ".what-will-you-see-slider",
         {
